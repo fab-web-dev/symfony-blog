@@ -19,6 +19,9 @@ class Category
     #[ORM\Column(type: 'string', length: 100)]
     private $name;
 
+    /**
+    * @gedmo\Slug(fields={"name"})
+    */
     #[ORM\Column(type: 'string', length: 120)]
     private $slug;
 
@@ -35,6 +38,11 @@ class Category
     {
         $this->categories = new ArrayCollection();
         $this->posts = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->id . '-' . $this->name ;
     }
 
     public function getId(): ?int
@@ -59,12 +67,12 @@ class Category
         return $this->slug;
     }
 
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
+    // public function setSlug(string $slug): self
+    // {
+    //     $this->slug = $slug;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getParent(): ?self
     {
