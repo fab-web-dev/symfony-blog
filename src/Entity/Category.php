@@ -42,7 +42,7 @@ class Category
 
     public function __toString()
     {
-        return $this->id . '-' . $this->name ;
+        return $this->id . ' - ' . $this->name ;
     }
 
     public function getId(): ?int
