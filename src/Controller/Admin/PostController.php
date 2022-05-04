@@ -50,7 +50,7 @@ class PostController extends AbstractController
     }
 
     #[Route('/update/{id}', name: 'update')]
-    public function updateCategory(Post $post, Request $request, ManagerRegistry $doctrine): Response
+    public function updatePost(Post $post, Request $request, ManagerRegistry $doctrine): Response
     {
         // $category = new Category();
 
